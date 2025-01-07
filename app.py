@@ -4,15 +4,14 @@ import torch
 from torch import autocast
 from diffusers import StableDiffusionPipeline
 
-# Authentication Token (replace `auth_token` with your actual token)
-auth_token = "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"
+auth_token = "enter your hugging face token"
 
 # Load the model
 @st.cache_resource
 def load_model():
     try:
         st.write("Loading model...")
-        model_id = "CompVis/stable-diffusion-v1-4"
+        model_id = "enter your own model"
         device = "cuda" if torch.cuda.is_available() else "cpu"
         st.write(f"Using device: {device}")
         
