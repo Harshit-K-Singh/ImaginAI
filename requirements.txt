@@ -58,3 +58,4 @@ urllib3==2.3.0
 watchdog==6.0.0
 zipp==3.21.0
 python-dotenv
+accelerate
