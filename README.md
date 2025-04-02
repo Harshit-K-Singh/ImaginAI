@@ -1,7 +1,8 @@
 # ImaginAI - AI-Powered Image Generator 🌌
 
 Stable Bud is a web-based application that uses **Stable Diffusion** to generate stunning AI-generated images based on user-provided text prompts. Built with **Streamlit**, this project provides an intuitive interface for customizing image generation quality and dimensions.
-  https://imaginai.streamlit.app/
+---
+   https://imaginai.streamlit.app/
 ---
 
 ## Features
