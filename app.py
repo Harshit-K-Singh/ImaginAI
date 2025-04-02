@@ -2,9 +2,18 @@ import streamlit as st
 from PIL import Image
 import torch
 from diffusers import StableDiffusionPipeline
+import os
+from dotenv import load_dotenv
+from tenacity import retry, stop_after_delay, wait_fixed
 
-# Authentication Token (replace with your actual token)
-auth_token = "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"
+# Load environment variables
+load_dotenv()
+
+# Get authentication token from environment variable
+auth_token = os.getenv("HUGGINGFACE_TOKEN")
+if not auth_token:
+    st.error("HUGGINGFACE_TOKEN not found in environment. Please check your .env file.")
+    st.stop()
 
 # Load the model with optimizations
 @st.cache_resource
