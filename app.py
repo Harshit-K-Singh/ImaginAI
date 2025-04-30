@@ -20,7 +20,7 @@ if not auth_token:
 def load_model():
     try:
         st.write("Loading model...")
-        model_id = "stabilityai/stable-diffusion-2-1-base"
+        model_id = "lykon/dreamshaper-8"
 
         device = "cuda" if torch.cuda.is_available() else "cpu"
         st.write(f"Using device: {device}")
@@ -112,3 +112,21 @@ if st.button("Generate Image") and pipe is not None:
         
     except Exception as e:
         st.error(f"Error generating image: {str(e)}")
+
+# Add simple retry logic if needed:
+def retry_function(max_attempts=3, wait_seconds=1):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            attempts = 0
+            while attempts < max_attempts:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    attempts += 1
+                    if attempts == max_attempts:
+                        raise e
+                    import time
+                    time.sleep(wait_seconds)
+            return None
+        return wrapper
+    return decorator
